@@ -3,6 +3,7 @@ namespace Sleek\ArchiveFilter;
 
 if (get_theme_support('sleek-archive-filter')) {
 	add_filter('pre_get_posts', function ($query) {
+		# Only touch main query
 		if (!is_admin() and $query->is_main_query()) {
 			# Build potential tax and meta query
 			$taxQuery = $query->get('tax_query', ['relation' => 'AND']);
