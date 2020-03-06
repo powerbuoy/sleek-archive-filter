@@ -2,7 +2,7 @@
 namespace Sleek\ArchiveFilter;
 
 add_action('after_setup_theme', function () {
-	if (get_theme_support('sleek-archive-filter')) {
+	if (get_theme_support('sleek/archive_filter')) {
 		add_filter('pre_get_posts', function ($query) {
 			# Only touch main query
 			if (!is_admin() and $query->is_main_query()) {
