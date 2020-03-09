@@ -1,4 +1,10 @@
-# Sleek Archive Filter
+# [Sleek Archive Filter](https://github.com/powerbuoy/sleek-archive-filter/)
+
+[![Packagist](https://img.shields.io/packagist/vpre/powerbuoy/sleek-archive-filter.svg?style=flat-square)](https://packagist.org/packages/powerbuoy/sleek-archive-filter)
+[![GitHub license](https://img.shields.io/github/license/powerbuoy/sleek-archive-filter.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-filter/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/powerbuoy/sleek-archive-filter.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-filter/issues)
+[![GitHub forks](https://img.shields.io/github/forks/powerbuoy/sleek-archive-filter.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-filter/network)
+[![GitHub stars](https://img.shields.io/github/stars/powerbuoy/sleek-archive-filter.svg?style=flat-square)](https://github.com/powerbuoy/sleek-archive-filter/stargazers)
 
 Adds the ability to filter posts in an archive using GET params:
 
