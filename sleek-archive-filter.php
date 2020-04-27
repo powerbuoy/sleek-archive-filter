@@ -12,6 +12,14 @@ add_action('after_setup_theme', function () {
 				$hasTaxQuery = false;
 				$hasMetaQuery = false;
 
+				# NOTE: On is_tax(), is_tag() and is_category() $query->get('tax_query') will in fact be empty
+				# but $query->tax_query will contain the current tax query. We need to merge that into our
+				# own tax query in order for get_queried_object() to still return the correct term
+				# https://wordpress.stackexchange.com/questions/124100/when-why-does-query-get-tax-query-return-empty/124404
+				if (isset($query->tax_query->queries) and !empty($query->tax_query->queries)) {
+					$taxQuery = array_merge($taxQuery, $query->tax_query->queries);
+				}
+
 				# Go through all get params
 				foreach ($_GET as $k => $v) {
 					# If this is a sleek filter taxonomy
