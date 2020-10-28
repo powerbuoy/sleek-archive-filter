@@ -99,6 +99,7 @@ add_action('after_setup_theme', function () {
 				if ($hasTaxQuery) {
 					$query->set('tax_query', $taxQuery);
 				}
+
 				if ($hasMetaQuery) {
 					$query->set('meta_query', $metaQuery);
 				}
@@ -106,6 +107,11 @@ add_action('after_setup_theme', function () {
 				# See if a search string is provided
 				if (isset($_GET['sleek_filter_search'])) {
 					$query->set('s', $_GET['sleek_filter_search']);
+				}
+
+				# If any filters are set - ignore sticky posts
+				if ($hasTaxQuery or $hasMetaQuery or isset($_GET['sleek_filter_search'])) {
+					$query->set('ignore_sticky_posts', true);
 				}
 			}
 		});
