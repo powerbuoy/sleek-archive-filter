@@ -45,15 +45,20 @@ add_action('after_setup_theme', function () {
 
 						if (!empty($val)) {
 							$hasMetaQuery = true;
+							$newQuery = [
+								'relation' => 'OR'
+							];
 
 							foreach ($val as $v) {
-								$metaQuery[] = [
+								$newQuery[] = [
 									'key' => $meta,
 									'value' => $v,
 									'compare' => '>=',
 									'type' => is_numeric($v) ? 'NUMERIC' : 'CHAR'
 								];
 							}
+
+							$metaQuery[] = $newQuery;
 						}
 					}
 					# Max query
@@ -64,15 +69,20 @@ add_action('after_setup_theme', function () {
 
 						if (!empty($val)) {
 							$hasMetaQuery = true;
+							$newQuery = [
+								'relation' => 'OR'
+							];
 
 							foreach ($val as $v) {
-								$metaQuery[] = [
+								$newQuery[] = [
 									'key' => $meta,
 									'value' => $v,
 									'compare' => '<=',
 									'type' => is_numeric($v) ? 'NUMERIC' : 'CHAR'
 								];
 							}
+
+							$metaQuery[] = $newQuery;
 						}
 					}
 					# Equal query
@@ -83,15 +93,20 @@ add_action('after_setup_theme', function () {
 
 						if (!empty($val)) {
 							$hasMetaQuery = true;
+							$newQuery = [
+								'relation' => 'OR'
+							];
 
 							foreach ($val as $v) {
-								$metaQuery[] = [
+								$newQuery[] = [
 									'key' => $meta,
 									'value' => $v,
 									'compare' => '=',
 									'type' => is_numeric($v) ? 'NUMERIC' : 'CHAR'
 								];
 							}
+
+							$metaQuery[] = $newQuery;
 						}
 					}
 				}
